@@ -1,0 +1,73 @@
+name: "Overcooked-HiMacMic"
+t_max: 8050000
+
+runner: "episode"
+batch_size_run: 1
+use_cuda: False
+
+beta: 0.03
+count_lmd: 0.05
+td_lambda2: 0.6
+skip_dim: 4    #d
+
+reward_positive: False
+# update the target network every {} episodes
+target_update_interval: 200
+size_run: 1
+buffer_size: 5000
+batch_size: 128 #can not train more than one batch
+tsg_batch_size: 1 #add agent batch , add tsg train times
+
+lr: 0.001 # Learning rate for agents
+td_lambda: 0.6
+tsg_sample_size: 20
+success_sig: 190
+hindsight: False
+success_hindsight: True
+
+r_baseline: 0.05
+counter_log_interval: 1000000
+tsg_buffer_size: 20
+mini_batch: 2
+grad_norm_clip: 10
+
+# use epsilon greedy action selector
+action_selector: "epsilon_greedy"
+epsilon_start: 1.0
+skip_epsilon_start: 1.0
+epsilon_finish: 0.05
+skip_epsilon_finish: 0.05
+epsilon_anneal_time: 100000
+skip_epsilon_anneal_time: 100000
+reward_int: True
+obs_agent_id: False
+obs_last_action: False
+obs_individual_obs: False
+
+n_allgoals: 25
+n_subgoals: 25
+goal_dim: 25
+
+x_range: 5.0
+y_range: 5.0
+
+x_length: 5
+y_length: 5
+
+# use Learner to train
+tsg_mac: "ns_tsg_mac"
+agent_mac: "agent_mac"
+agent: "rnn"
+tsg_agent: "tsg_ns_rnn"
+agent_output_type: q
+learner: "tsg_learner"
+mixer: "tsg_qmix"
+agent_mixer: "qmix"
+mixing_embed_dim: 32
+hypernet_embed: 64
+optimizer: 'adam'
+q_lambda: False
+double_q: False
+skip_hidden_dim: 30 #not used
+base_int_reward: 0 #not used
+count_lmd_e: 0 #not used

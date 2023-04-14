@@ -1,0 +1,5 @@
+python main.py --config=HiMacMic --env-config=academy_3_vs_1_with_keeper
+
+or
+
+python main.py --config=HiMacMic --env-config=academy_counterattack_hard 
